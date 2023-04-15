@@ -10,16 +10,25 @@ The modern world generates vast amount of information. One of the forms of infor
 We’ll work with data collected from the HuffPost (The Huffington Post, n.d.) collected through web scraping and available on Kaggle  (Misra, 2018) . The entire data contains data articles dated from January 2012 to May 2018 with a total count of over 200,000, however for this paper we only take data from January 2017 to May 2018 into account. 
 
 # image categories count
+
 There are 31 distinct categories that house all the articles of the data set. The distribution among those is however imbalanced. The category with the most articles is Politics with 13,680 articles and the one with the least articles is Fifty with only 2 articles. We remove all categories with article count below 100, which brings the distinct categories to 26 and the one with the least count is Science with 135 articles. 
 
 # image headine count
+
 The headline contains descriptive text that can be processed to classify articles. The word count of articles ranges from 1 to 27 with a mean of 10.8939 and median of 11 and SD of 2.78. The distribution when plotted looks normally distributed and QQ plot also suggests the same. 
 
 ## Modelling
+
 We will prepare the dataset and split it in a `train_set` and `test_set` with an 80% split with stratified random sampling based on category. We used the initial_split function to achieve the split.  
-Figure 5: Code snippet: train - test split
-We then created a recipe to apply pre-processing functions to our set before running it through the models. Model is set by calling a model function with parameters, chaining the relevant mode and engine.  
- 
-Figure 6: Code snippet: tidymodels recipe
-Then Model training pipeline is passed as a workflow()and then fitted to the training data. We then defined functions to predict results on the test data, compare it to actual results and collect the metrics and time taken for each model to train such predict. 
+
+We then create a recipe to apply pre-processing functions to our set before running it through the models. Model is set by calling a model function with parameters, chaining the relevant mode and engine.  
+
+Then Model training pipeline is passed as a `workflow()` and then fitted to the training data. We then defined functions to predict results on the test data, compare it to actual results and collect the metrics and time taken for each model to train such predict. 
+
+# model workflow
+
+## Analyse
+
+Once all models have done predicting results, we collect all metric vectors in a data frame. We then calculate the Equation 5 provided above taking Precision and Recall for all models and calculate the F1 score for all models. You can observe metrics for all models in Table 1. (Please note that the run times might differ based on the machine you are using to recreate the analysis)
+
 
