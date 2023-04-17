@@ -36,7 +36,7 @@ install.packages("keras")
 
 ### Running the Script
 1. Clone the repository to your local machine.
-2. Open the R script file (news_classifier.R) in RStudio.
+2. Open the R script file (news_category_classification.R) in RStudio.
 3. Download dataset from https://arxiv.org/abs/2209.11429
 4. Modify the path to the News_Category_Dataset_v2.json file as needed.
 5. Run the script to train and evaluate the classification models.
